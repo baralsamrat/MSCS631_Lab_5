@@ -1,5 +1,11 @@
 #!/bin/bash
-# main.sh: Script to run and demonstrate the HTTP Web Proxy Server lab.
+# main.sh
+# This script runs the ProxyServer.py implementation of the HTTP Web Proxy Server,
+# then uses curl to fetch web pages via the proxy.
+# For each target host, it performs two requests:
+#   1. The first request fetches the page from the remote server (and caches it).
+#   2. The second request demonstrates a cache hit.
+# The output for each target is saved to a separate text file.
 
 # Check if the proxy server file exists
 if [ ! -f ProxyServer.py ]; then
@@ -7,7 +13,8 @@ if [ ! -f ProxyServer.py ]; then
     exit 1
 fi
 
-# Start the proxy server on localhost (127.0.0.1) at port 8888 in the background.
+# Start the proxy server on localhost (127.0.0.1) at port 8888.
+# (Adjust the IP/port if needed.)
 echo "Starting Proxy Server on 127.0.0.1:8888..."
 python ProxyServer.py 127.0.0.1 &
 PROXY_PID=$!
@@ -15,16 +22,29 @@ PROXY_PID=$!
 # Allow some time for the server to initialize.
 sleep 2
 
-# Demonstrate the lab by requesting a webpage via the proxy.
-# The first request should fetch the content from the remote server.
-echo "Requesting web page via proxy (first time)..."
-curl http://127.0.0.1:8888/www.google.com
+# Define an associative array for target hosts.
+declare -A targets
+targets=( 
+    ["google"]="www.google.com"
+    ["bbc"]="www.bbc.co.uk"
+    ["baidu"]="www.baidu.com"
+    ["uol"]="www.uol.com.br"
+)
 
-echo -e "\n\nRequesting web page via proxy (second time, expecting a cache hit)..."
-curl http://127.0.0.1:8888/www.google.com
-
-# Wait a bit to let the user see the output.
-sleep 2
+# Loop over each target host, fetching the web page twice to show caching.
+for key in "${!targets[@]}"; do
+    url=${targets[$key]}
+    output_file="output_${key}.txt"
+    
+    echo "Fetching $url via proxy (first request: remote fetch)..."
+    # The -x option tells curl to use the proxy at 127.0.0.1:8888.
+    curl -s -x 127.0.0.1:8888 "http://$url" > "$output_file"
+    
+    echo "Fetching $url via proxy (second request: should hit cache)..."
+    curl -s -x 127.0.0.1:8888 "http://$url" >> "$output_file"
+    
+    echo "Output for $url saved in $output_file"
+done
 
 # Stop the proxy server.
 echo "Stopping Proxy Server..."
