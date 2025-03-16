@@ -13,9 +13,9 @@ March 14, 2025
 Understanding of web proxy servers working and one of their basic functionalities – caching. Your task is to develop a small web proxy server which is able to cache web pages.
 
 # Screenshot
-![1](/screenshots/Capture-1.PNG)
-![2](/screenshots/Capture-2.PNG)
-![3](/screenshots/Capture-3.PNG)
+![1](/screeenshots/Capture-1.png)
+![2](/screenshots/Capture-2.png)
+![3](/screenshots/Capture-3.png)
 
 # Ouput 
 ```bash
