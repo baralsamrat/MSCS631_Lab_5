@@ -1,3 +1,4 @@
+#!/bin/bash
 # main.sh
 # This script runs the main.py implementation of the HTTP Web Proxy Server,
 # then uses curl to fetch web pages via the proxy. For each target host, it performs two requests:

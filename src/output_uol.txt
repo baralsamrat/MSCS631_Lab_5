@@ -1,0 +1,26 @@
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>CloudFront</center>
+</body>
+</html>
+HTTP/1.1 301 Moved Permanently
+Server: CloudFront
+Date: Sun, 16 Mar 2025 23:13:56 GMT
+Content-Type: text/html
+Content-Length: 167
+Connection: close
+Location: https://www.uol.com.br/
+X-Cache: Redirect from cloudfront
+Via: 1.1 308930dd559485ab2bf680b9ef6cf01c.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: IAD61-P8
+X-Amz-Cf-Id: g3eB6WfjSZB0b1ROHRmqrVIbIe4iw_XcEJx4eDFkCwdo6g093SkaEw==
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>CloudFront</center>
+</body>
+</html>

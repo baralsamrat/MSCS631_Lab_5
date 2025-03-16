@@ -1,0 +1,30 @@
+HTTP/1.1 302 Found
+Connection: close
+Content-Length: 0
+cache-control: public, stale-while-revalidate=10, max-age=60
+location: https://www.bbc.co.uk/
+req-svc-chain: FASTLY,GTM,BELFRAGE
+via: 1.1 BBC-GTM, 1.1 Belfrage, 1.1 varnish
+x-bbc-no-scheme-rewrite: 1
+Origin-Agent-Cluster: ?0
+nel: {"report_to":"default","max_age":2592000,"include_subdomains":true,"failure_fraction":0.25}
+X-BBC-Edge-Cache-Status: HIT
+report-to: {"group":"default","max_age":2592000,"endpoints":[{"url":"https://default.bbc-reporting-api.app/report-endpoint","priority":1}],"include_subdomains":true}
+Server: BBC-GTM
+Strict-Transport-Security: max-age=31536000; preload
+Permissions-Policy: browsing-topics=(), join-ad-interest-group=(), run-ad-auction=()
+X-Robots-Tag: bingbot: noarchive
+Fastly-Restarts: 1
+Accept-Ranges: bytes
+Date: Sun, 16 Mar 2025 23:13:55 GMT
+X-Fastly-Cache-Status: HIT-CLUSTER
+X-Served-By: cache-iad-kcgs7200051-IAD
+X-Cache: HIT
+X-Cache-Hits: 1
+X-Timer: S1742166835.147421,VS0,VE31
+X-Fastly-Pre-Flight-Cache: MISS, MISS
+X-Fastly-Pre-Flight-Cache-Status: MISS-CLUSTER
+X-cache-age: 27
+Vary: x-bbc-edge-scheme
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+
