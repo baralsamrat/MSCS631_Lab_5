@@ -14,8 +14,8 @@ Understanding of web proxy servers working and one of their basic functionalitie
 
 # Screenshot
 ![1](/screeenshots/Capture-1.png)
-![2](/screenshots/Capture-2.png)
-![3](/screenshots/Capture-3.png)
+![2](/screeenshots/Capture-2.png)
+![3](screeenshots/Capture-3.png)
 
 # Ouput 
 ```bash
